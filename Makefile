@@ -6,3 +6,6 @@ build: ## Build go binary
 
 run:   ## Run go program, you can pass arguments using make run ARGS="--help"
 	go run ./... $(ARGS)
+
+lint: ## Run golangci-lint linter
+	golangci-lint run ./...

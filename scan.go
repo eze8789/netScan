@@ -31,6 +31,7 @@ func populateChann(n []int, c chan int) {
 // parsePorts return a slice of integers and an error after parse an string with a port range (i.e: single port: 80 multiple ports: 1-1024)
 func parsePorts(ports string) ([]int, error) {
 	portRanges := strings.Split(ports, "-")
+	//nolint:gomnd
 	if len(portRanges) > 2 {
 		return nil, errors.New("unable to parse ports")
 	}
