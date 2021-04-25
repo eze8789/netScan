@@ -8,6 +8,7 @@ import (
 	"strings"
 )
 
+// TODO: add UDP support
 func scan(ipAddress, output string, pChann <-chan int, openPorts chan<- int) {
 	for v := range pChann {
 		conn, err := net.Dial("tcp", fmt.Sprintf("%s:%d", ipAddress, v))

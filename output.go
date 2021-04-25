@@ -32,7 +32,7 @@ func toJSON(ipAddress string, n int) error {
 	return nil
 }
 
-// writeOutput decide which method choose to store/present the data
+// writeOutput decides which method choose to store/present the data
 func writeOutput(output, ipAddress, status string, p int) {
 	switch output {
 	case "csv":
