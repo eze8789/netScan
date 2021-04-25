@@ -8,11 +8,11 @@ import (
 	"strings"
 )
 
-func scan(ipAddres string, pChann <-chan int, openPorts chan<- int) {
+func scan(ipAddress, output string, pChann <-chan int, openPorts chan<- int) {
 	for v := range pChann {
-		conn, err := net.Dial("tcp", fmt.Sprintf("%s:%d", ipAddres, v))
+		conn, err := net.Dial("tcp", fmt.Sprintf("%s:%d", ipAddress, v))
 		if err != nil {
-			fmt.Printf("port is closed: %d\n", v)
+			writeOutput(output, ipAddress, "closed", v)
 			openPorts <- 0
 			continue
 		}
